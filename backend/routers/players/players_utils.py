@@ -32,8 +32,8 @@ def _was_played_in_team_and_yaer(player, team_name, year):
 
 def _get_player_img(player):
     first_name = player["firstName"]
-    lastName = player["lastName"]
-    return "https://nba-players.herokuapp.com/players/{}/{}".format(first_name, lastName)
+    last_name = player["lastName"]
+    return "https://nba-players.herokuapp.com/players/{}/{}".format(last_name, first_name)
 
 
 def _filter_players_content(players):
