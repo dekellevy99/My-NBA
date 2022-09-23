@@ -1,13 +1,12 @@
 from pydantic import BaseModel
 from typing import Union
-import requests
 
 
 class InvalidTeamName(Exception):
     pass
 
 
-class Player(BaseModel):
+class PlayerData(BaseModel):
     firstName: Union[str, None] = None
     lastName: Union[str, None] = None
     jersey: Union[str, None] = None
@@ -39,12 +38,9 @@ def _get_player_img(player):
 
 def _filter_players_content(players):
     filtered_players_content = []
-    for player in players:
-        filtered_player = Player(
-            **player,
-            picture=_get_player_img(player)
-        )
-        filtered_players_content.append(filtered_player)
+    filtered_players_content.extend(
+        map(lambda player: PlayerData(**player, picture=_get_player_img(player)), players)
+    )
     return filtered_players_content
 
 
