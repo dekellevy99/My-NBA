@@ -7,6 +7,7 @@ class InvalidTeamName(Exception):
 
 
 class PlayerData(BaseModel):
+    personId: Union[str, None] = None
     firstName: Union[str, None] = None
     lastName: Union[str, None] = None
     jersey: Union[str, None] = None
