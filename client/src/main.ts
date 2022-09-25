@@ -2,12 +2,14 @@
     const data: Data = new Data();
     const render = RenderModule();
 
-    $('.player-card').hover(function(){
+    $('#players-container').on("mouseenter", ".player-card", function(){
         $(this).addClass('animate');		
-     }, function(){
-        $(this).removeClass('animate');			
-    });
+     });
 
+     $("#players-container").on("mouseleave", ".player-card", function(){
+        $(this).removeClass('animate');	
+     });
+       		
 
     $("#search-btn").on("click", function(){
         let teamName: string = <string> $("#team-input").val()
@@ -15,5 +17,6 @@
         data.generateData(teamName, year).then(() => {
             render.renderData(data)
         })
-    })
+    });
+
 })()
