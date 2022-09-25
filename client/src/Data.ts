@@ -31,10 +31,11 @@ class Data{
     }
 
     async generateData(teamName: string, year: number){
-        let dataPlayers = await $.get(`http://127.0.0.1:8000/players?teamName=${teamName}&year=${year}`)
+        let dataPlayers = await $.get(`/players?teamName=${teamName}&year=${year}`)
+        this._players.splice(0)
         for(const player of dataPlayers["Players"]){
-            const {playerId, firstName, lastName, jersey, pos, picture} = player
-            this.addPlayer(new Player(playerId, firstName, lastName, jersey, pos, picture))
+            const {personId, firstName, lastName, jersey, pos, picture} = player
+            this.addPlayer(new Player(personId, firstName, lastName, jersey, pos, picture))
         }
     }
 }
