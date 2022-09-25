@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My - NBA</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    
+    <div id="container">
+        <div id="search-container">
+            <input id="team-input" type="text" placeholder="Enter team name">
+            <input id="year-input" type="number" placeholder="Enter year">
+            <button id="search-btn">Search</button>
+        </div>
+
+        <div id="players-container">
+
+            <div class="make-3D-space">
+                <div class="player-card">
+                    <div class="shadow"></div>
+                    <img src="https://nba-players.herokuapp.com/players/curry/stephen" alt="" />
+                    <div class="image_overlay"></div>       	
+                    <div class="stats-container">
+                        <span class="player-jersey-number">[30]</span>
+                        <span class="player-name">Stephen Curry</span>    
+                        <p>Position - G</p>                                           
+                        
+                        <div class="player-options">
+
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+
+            <div class="make-3D-space">
+                <div class="player-card">
+                    <div class="shadow"></div>
+                    <img src="https://nba-players.herokuapp.com/players/Bell/Jordan" alt=""/>
+                    <div class="image_overlay"></div>       	
+                    <div class="stats-container">
+                        <span class="player-jersey-number">[2]</span>
+                        <span class="player-name">Jordan Bell</span>    
+                        <p>Position - F</p>                                              
+                        
+                        <div class="player-options">
+
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+
+            <div class="make-3D-space">
+                <div class="player-card">
+                    <div class="shadow"></div>
+                    <img src="https://nba-players.herokuapp.com/players/Bogut/Andrew" alt=""/>
+                    <div class="image_overlay"></div>       	
+                    <div class="stats-container">
+                        <span class="player-jersey-number">[12]</span>
+                        <span class="player-name">Andrew Bogut</span>    
+                        <p>Position - C</p>                                            
+                        
+                        <div class="player-options">
+
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+
+
+            <div class="make-3D-space">
+                <div class="player-card">
+                    <div class="shadow"></div>
+                    <img src="https://nba-players.herokuapp.com/players/cook/quinn" alt=""/>
+                    <div class="image_overlay"></div>       	
+                    <div class="stats-container">
+                        <span class="player-jersey-number">[4]</span>
+                        <span class="player-name">Quinn Cook</span>    
+                        <p>Position - G</p>                                            
+                        
+                        <div class="player-options">
+
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+
+
+            <div class="make-3D-space">
+                <div class="player-card">
+                    <div class="shadow"></div>
+                    <img src="https://nba-players.herokuapp.com/players/Bell/Jordan" alt=""/>
+                    <div class="image_overlay"></div>       	
+                    <div class="stats-container">
+                        <span class="player-jersey-number">[2]</span>
+                        <span class="player-name">Jordan Bell</span>    
+                        <p>Position - F</p>                                              
+                        
+                        <div class="player-options">
+
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+    <!-- ================================== TEMPLATES SCRIPTS ================================== -->
+    <script id="player-card-template" type="text/x-handlebars-template">
+        {{#each players}}
+            <div class="make-3D-space">
+                <div class="player-card">
+                    <div class="shadow"></div>
+                    <img src={{picture}} alt=""/>
+                    <div class="image_overlay"></div>       	
+                    <div class="stats-container">
+                        <span class="player-jersey-number">[{{jerseyNumber}}]</span>
+                        <span class="player-name">{{firstName}} {{lastName}}</span>    
+                        <p>Position - {{Position}}</p>                                              
+                        
+                        <div class="player-options">
+
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+        {{/each}}
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="Render.js"></script>
+    <script src="Player.js"></script>
+    <script src="Data.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
