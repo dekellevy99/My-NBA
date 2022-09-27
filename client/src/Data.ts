@@ -10,14 +10,14 @@ class Data{
     }
 
     addPlayer(player: Player): void{
-        let existPlayer: Player|undefined = this._players.find(p => p.id === player.id)
+        let existPlayer: Player|undefined = this._players.find(p => p.id == player.id)
         if (!existPlayer){
             this._players.push(player)
         }
     }
 
     getPlayerById(playerId: number): Player|undefined{
-        let player: Player|undefined = this._players.find(p => p.id === playerId)
+        let player: Player|undefined = this._players.find(p => p.id == playerId)
         return player
     }
 
@@ -27,6 +27,16 @@ class Data{
             if(curPlayer.id === playerId){
                 this._players.splice(i, 1)
             }
+        }
+    }
+
+    async generateStatsOfPlayer(playerId: number){
+        let player = this.getPlayerById(playerId)
+        if (player !== undefined){
+            let firstName: string = player.firstName
+            let lastName: string = player.lastName
+            let stats = await $.get(`/players/stats/${firstName}/${lastName}`)
+            return stats
         }
     }
 
