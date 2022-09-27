@@ -60,10 +60,10 @@ def filter_players_by_team_year(players, team_name, year):
 
 def filter_player_stats(stats):
     filter_stats = {
-        "games played": stats["games_played"],
-        "points per game": stats["points_per_game"],
-        "assits per game": stats["assists_per_game"],
-        "blocks per game": stats["blocks_per_game"]
+        "games_played": stats["games_played"],
+        "points_per_game": stats["points_per_game"],
+        "assits_per_game": stats["assists_per_game"],
+        "blocks_per_game": stats["blocks_per_game"]
     }
 
     return filter_stats
