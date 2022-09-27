@@ -22,11 +22,23 @@ def add_player(player):
     return False
 
 
+def get_dream_team():
+    return _dream_team_players[:]
+
+
 def get_player_by_id(player_id):
     player_index = _get_player_index(player_id)
     if player_index != NOT_FOUND:
         return _dream_team_players[player_index]
     return None
+
+
+def update_player_by_id(player_id, update_player):
+    player_index = _get_player_index(player_id)
+    if player_index != NOT_FOUND:
+        _dream_team_players[player_index] = update_player
+        return True
+    return False
 
 
 def remove_player_by_id(player_id):
@@ -37,5 +49,3 @@ def remove_player_by_id(player_id):
     return False
 
 
-def get_dream_team():
-    return _dream_team_players[:]
