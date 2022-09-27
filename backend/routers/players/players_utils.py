@@ -56,3 +56,14 @@ def filter_players_by_team_year(players, team_name, year):
         )
 
     return _filter_players_content(filtered_players)
+
+
+def filter_player_stats(stats):
+    filter_stats = {
+        "games played": stats["games_played"],
+        "points per game": stats["points_per_game"],
+        "assits per game": stats["assists_per_game"],
+        "blocks per game": stats["blocks_per_game"]
+    }
+
+    return filter_stats
