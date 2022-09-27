@@ -11,7 +11,16 @@ const RenderModule = function(){
         $("#players-container").append(template({players: data.players}))
     }
 
+    const renderStats = function(player: HTMLElement, stats: Object): void{
+        let playerStatsElem = $(player).find(".player-options")
+        $(playerStatsElem).empty()
+        let source = $("#player-stats-template").html()
+        let template = Handlebars.compile(source)
+        $(playerStatsElem).append(template(stats))
+    }
+
     return {
-        renderData: renderData
+        renderData: renderData,
+        renderStats: renderStats
     }
 }
