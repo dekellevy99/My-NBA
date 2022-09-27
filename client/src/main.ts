@@ -6,7 +6,7 @@
         $(this).addClass('animate');
         let playerId: number = $(this).data().id
         data.generateStatsOfPlayer(playerId).then((res) => {
-            render.renderStats(res)
+            render.renderStats(this, res["stats"])
         })
      });
 
@@ -14,7 +14,6 @@
         $(this).removeClass('animate');	
      });
        		
-
     $("#search-btn").on("click", function(){
         let teamName: string = <string> $("#team-input").val()
         let year: number = <number> $("#year-input").val()
