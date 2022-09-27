@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from routers import players_api, dream_team_api
 import uvicorn
-from routers import players_api
 
 app = FastAPI()
 app.include_router(players_api.router)
+app.include_router(dream_team_api.router)
+
 
 app.mount("/client/build", StaticFiles(directory="client/build"), name="static")
 
