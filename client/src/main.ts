@@ -3,7 +3,11 @@
     const render = RenderModule();
 
     $('#players-container').on("mouseenter", ".player-card", function(){
-        $(this).addClass('animate');		
+        $(this).addClass('animate');
+        let playerId: number = $(this).data().id
+        data.generateStatsOfPlayer(playerId).then((res) => {
+            render.renderStats(res)
+        })
      });
 
      $("#players-container").on("mouseleave", ".player-card", function(){
