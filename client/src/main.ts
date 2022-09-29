@@ -4,10 +4,13 @@
 
     $('#players-container').on("mouseenter", ".player-card", function(){
         $(this).addClass('animate');
-        let playerId: number = $(this).data().id
-        data.generateStatsOfPlayer(playerId).then((res) => {
-            render.renderStats(this, res["stats"])
-        })
+        console.log($(this).find(".player-options").children());
+        if($(this).find(".player-options").children().length == 0){
+            let playerId: number = $(this).data().id
+            data.generateStatsOfPlayer(playerId).then((res) => {
+                render.renderStats(this, res["stats"])
+            })
+        }
      });
 
      $("#players-container").on("mouseleave", ".player-card", function(){
