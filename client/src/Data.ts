@@ -57,4 +57,16 @@ class Data{
             this.addPlayer(new Player(personId, firstName, lastName, jersey, pos, picture));
         }
     }
+
+    addPlayerToDreamTeam(playerId: number){
+        let player = this.getPlayerById(playerId);
+        $.post("/dreamTeam", JSON.stringify({
+            "personId": player?.id,
+            "firstName": player?.firstName,
+            "lastName": player?.lastName,
+            "jersey": player?.jerseyNumber,
+            "pos": player?.position,
+            "picture": player?.picture
+        }))
+    }
 }
