@@ -4,7 +4,6 @@
 
     $('#players-container').on("mouseenter", ".player-card", function(){
         $(this).addClass('animate');
-        console.log($(this).find(".player-options").children());
         if($(this).find(".player-options").children().length == 0){
             let playerId: number = $(this).data().id
             data.generateStatsOfPlayer(playerId).then((res) => {
@@ -20,9 +19,20 @@
     $("#search-btn").on("click", function(){
         let teamName: string = <string> $("#team-input").val()
         let year: number = <number> $("#year-input").val()
-        data.generateData(teamName, year).then(() => {
-            render.renderData(data)
+        data.generatePlayers(teamName, year).then(() => {
+            render.renderPlayers(data)
         })
     });
+
+    $("#dreamTeam-btn").on("click", function(){
+        data.generateDreamTeam().then(() => {
+            render.renderPlayers(data)
+        })
+
+    })
+
+
+
+
 
 })()
