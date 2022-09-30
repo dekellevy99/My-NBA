@@ -10,7 +10,7 @@ def get_players(teamName, year):
     filtered_players = []
     try:
         filtered_players = players_utils.filter_players_by_team_year(players, teamName, int(year))
-        return {"Players": filtered_players}
+        return {"players": filtered_players}
 
     except players_utils.InvalidTeamName:
         raise HTTPException(
