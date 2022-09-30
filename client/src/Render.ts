@@ -4,7 +4,7 @@ const RenderModule = function(){
         $("#players-container").empty()
     }
 
-    const renderData = function(data: Data): void{
+    const renderPlayers = function(data: Data): void{
         _clean()
         let source = $("#player-card-template").html()
         let template = Handlebars.compile(source)
@@ -20,7 +20,7 @@ const RenderModule = function(){
     }
 
     return {
-        renderData: renderData,
+        renderPlayers: renderPlayers,
         renderStats: renderStats
     }
 }
