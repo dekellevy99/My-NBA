@@ -28,7 +28,11 @@
         data.generateDreamTeam().then(() => {
             render.renderPlayers(data)
         })
+    })
 
+    $("#players-container").on("click", ".add-btn", function(){
+        let playerId: number = $(this).closest(".player-card").data().id
+        data.addPlayerToDreamTeam(playerId)
     })
 
 
