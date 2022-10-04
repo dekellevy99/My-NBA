@@ -19,8 +19,16 @@ const RenderModule = function(){
         $(playerStatsElem).append(template(stats))
     }
 
+    const renderDreamTeam = function(data: Data): void{
+        _clean()
+        let source = $("#dream-team-player-card-template").html()
+        let template = Handlebars.compile(source)
+        $("#players-container").append(template({players: data.players}))
+    }
+
     return {
         renderPlayers: renderPlayers,
-        renderStats: renderStats
+        renderStats: renderStats,
+        renderDreamTeam: renderDreamTeam
     }
 }
