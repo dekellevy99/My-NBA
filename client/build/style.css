@@ -1,5 +1,5 @@
 body {
-	background: #ecf0f1;
+	background: #eee;
 	font-family: "Open Sans", sans-serif; 
 }
 
@@ -20,7 +20,18 @@ body {
     width: 100%;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 6fr 1fr 1fr;
+    grid-template-columns: 6fr 1fr 1fr 1fr 1fr;
+}
+
+#search-container > div{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    border: solid 1px;
+}
+
+#search-container > div > label{
+    font-weight: bold;
 }
 
 #team-input{
@@ -33,6 +44,17 @@ body {
 
 #search-btn{
     padding: 10px;
+    font-weight: bold;
+}
+
+#dreamTeam-btn{
+    padding: 10px;
+    font-weight: bold;
+}
+
+#birthDate-btn{
+    padding: 10px;
+    font-weight: bold;
 }
 
 #players-container{
@@ -43,6 +65,16 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
+}
+
+.add-btn{
+    float: right;
+    cursor: pointer;
+}
+
+.remove-btn{
+    float: right;
+    cursor: pointer;
 }
 
 
@@ -114,6 +146,7 @@ div.player-card.flip180{
     height: 300px;
     width: 325px;
     object-fit: cover;
+    background-color: #cacaca96;
 }
 
 .stats-container{
@@ -136,15 +169,21 @@ div.player-card.flip180{
          -o-transition: all 200ms ease-out; 
             transition: all 200ms ease-out; 
 }
+
+.player-card.animate .stats-container > p{
+    margin: 10px;
+}
 .stats-container .player-name{
-	font-size:22px;
+	font-size:18px;
 	color:#393c45;	
     font-weight: bold;
 }
-.stats-container p{
+.stats-container > p{
 	font-size:16px;
 	color:#b1b1b3;	
-	padding:2px 0 20px 0;
+    display: inline-block;
+    margin: 7px 0px 7px 0px;
+
 }
 .stats-container .player-jersey-number{
 	float:right;
@@ -171,16 +210,11 @@ div.player-card.flip180{
 .player-options{
 	padding:2px 0 0;
 }
-.player-options strong{
-	font-weight:700;
-	color:#393c45;
-	font-size:14px;
-}
-.player-options span{	
-	color:#969699;
-	font-size:14px;
-	display:block;
-	margin-bottom:8px;
+.stats-container .player-options p{
+	font-weight:400;
+	color:#b1b1b3;;
+	font-size:15px;
+    margin: 3px;
 }
 
 div.shadow{

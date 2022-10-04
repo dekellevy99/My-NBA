@@ -15,97 +15,17 @@
             <input id="team-input" type="text" placeholder="Enter team name">
             <input id="year-input" type="number" placeholder="Enter year">
             <button id="search-btn">Search</button>
+            <button id="dreamTeam-btn">Get Dream Team</button>
+            <div>
+                <label>
+                    <input type="checkbox" id="birthDate-checkbox">
+                    Filter By Birth Date        
+                </label>
+            </div>
+
         </div>
 
-        <div id="players-container">
-
-            <div class="make-3D-space">
-                <div class="player-card">
-                    <div class="shadow"></div>
-                    <img src="https://nba-players.herokuapp.com/players/curry/stephen" alt="" />
-                    <div class="image_overlay"></div>       	
-                    <div class="stats-container">
-                        <span class="player-jersey-number">[30]</span>
-                        <span class="player-name">Stephen Curry</span>    
-                        <p>Position - G</p>                                           
-                        
-                        <div class="player-options">
-
-                        </div>                       
-                    </div>                         
-                </div>
-            </div>
-
-            <div class="make-3D-space">
-                <div class="player-card">
-                    <div class="shadow"></div>
-                    <img src="https://nba-players.herokuapp.com/players/Bell/Jordan" alt=""/>
-                    <div class="image_overlay"></div>       	
-                    <div class="stats-container">
-                        <span class="player-jersey-number">[2]</span>
-                        <span class="player-name">Jordan Bell</span>    
-                        <p>Position - F</p>                                              
-                        
-                        <div class="player-options">
-
-                        </div>                       
-                    </div>                         
-                </div>
-            </div>
-
-            <div class="make-3D-space">
-                <div class="player-card">
-                    <div class="shadow"></div>
-                    <img src="https://nba-players.herokuapp.com/players/Bogut/Andrew" alt=""/>
-                    <div class="image_overlay"></div>       	
-                    <div class="stats-container">
-                        <span class="player-jersey-number">[12]</span>
-                        <span class="player-name">Andrew Bogut</span>    
-                        <p>Position - C</p>                                            
-                        
-                        <div class="player-options">
-
-                        </div>                       
-                    </div>                         
-                </div>
-            </div>
-
-
-            <div class="make-3D-space">
-                <div class="player-card">
-                    <div class="shadow"></div>
-                    <img src="https://nba-players.herokuapp.com/players/cook/quinn" alt=""/>
-                    <div class="image_overlay"></div>       	
-                    <div class="stats-container">
-                        <span class="player-jersey-number">[4]</span>
-                        <span class="player-name">Quinn Cook</span>    
-                        <p>Position - G</p>                                            
-                        
-                        <div class="player-options">
-
-                        </div>                       
-                    </div>                         
-                </div>
-            </div>
-
-
-            <div class="make-3D-space">
-                <div class="player-card">
-                    <div class="shadow"></div>
-                    <img src="https://nba-players.herokuapp.com/players/Bell/Jordan" alt=""/>
-                    <div class="image_overlay"></div>       	
-                    <div class="stats-container">
-                        <span class="player-jersey-number">[2]</span>
-                        <span class="player-name">Jordan Bell</span>    
-                        <p>Position - F</p>                                              
-                        
-                        <div class="player-options">
-
-                        </div>                       
-                    </div>                         
-                </div>
-            </div>
-
+        <div id="players-container"> 
 
         </div>
     </div>
@@ -114,22 +34,54 @@
     <script id="player-card-template" type="text/x-handlebars-template">
         {{#each players}}
             <div class="make-3D-space">
-                <div class="player-card">
+                <div class="player-card" data-id="{{id}}">
                     <div class="shadow"></div>
                     <img src={{picture}} alt=""/>
                     <div class="image_overlay"></div>       	
                     <div class="stats-container">
                         <span class="player-jersey-number">[{{jerseyNumber}}]</span>
-                        <span class="player-name">{{firstName}} {{lastName}}</span>    
-                        <p>Position - {{position}}</p>                                              
-                        
+                        <span class="player-name">{{firstName}} {{lastName}}</span>
+                        <br><br>
+                        <p>Position - {{position}}</p>  
+                        <button class="add-btn">+</button>    
+                                            
                         <div class="player-options">
 
-                        </div>                       
+                        </div>                        
                     </div>                         
                 </div>
             </div>
         {{/each}}
+    </script>
+
+    <script id="dream-team-player-card-template" type="text/x-handlebars-template">
+        {{#each players}}
+            <div class="make-3D-space">
+                <div class="player-card" data-id="{{id}}">
+                    <div class="shadow"></div>
+                    <img src={{picture}} alt=""/>
+                    <div class="image_overlay"></div>       	
+                    <div class="stats-container">
+                        <span class="player-jersey-number">[{{jerseyNumber}}]</span>
+                        <span class="player-name">{{firstName}} {{lastName}}</span>
+                        <br><br>
+                        <p>Position - {{position}}</p>  
+                        <button class="remove-btn">-</button>    
+                                            
+                        <div class="player-options">
+
+                        </div>                        
+                    </div>                         
+                </div>
+            </div>
+        {{/each}}
+    </script>
+
+    <script id="player-stats-template" type="text/x-handlebars-template">
+        <p>- Games Played: {{games_played}}</p>
+        <p>- Points Per Game: {{points_per_game}} </p>
+        <p>- Assits Per Game: {{assits_per_game}}</p>
+        <p>- Blocks Per Game: {{blocks_per_game}}</p>
     </script>
 
 
