@@ -71,4 +71,14 @@ class Data{
             }))
         }
     }
+
+    removePlayerFromDreamTeam(playerId: number){
+        let player = this.getPlayerById(playerId);
+        if(player != undefined){
+            $.ajax({
+                url: `/dreamTeam/${playerId}`,
+                method: "DELETE"
+            })
+        }
+    }
 }
