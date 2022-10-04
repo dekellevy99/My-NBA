@@ -26,7 +26,7 @@
 
     $("#dreamTeam-btn").on("click", function(){
         data.generateDreamTeam().then(() => {
-            render.renderPlayers(data)
+            render.renderDreamTeam(data)
         })
     })
 
@@ -35,8 +35,10 @@
         data.addPlayerToDreamTeam(playerId)
     })
 
-
-
-
-
+    $("#players-container").on("click", ".remove-btn", function(){
+        let playerId: number = $(this).closest(".player-card").data().id;
+        data.removePlayerFromDreamTeam(playerId)?.then(() => {
+            render.renderDreamTeam(data);
+        })
+    })
 })()
