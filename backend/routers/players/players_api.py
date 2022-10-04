@@ -5,11 +5,12 @@ import requests
 router = APIRouter()
 
 @router.get("/players")
-def get_players(teamName, year):
+def get_players(teamName, year, hasBirthDate):
     players = requests.get(f"http://data.nba.net/10s/prod/v1/{year}/players.json").json()["league"]
     filtered_players = []
     try:
-        filtered_players = players_utils.filter_players_by_team_year(players, teamName, int(year))
+        filter_by_has_birth_date = True if hasBirthDate == "true" else False
+        filtered_players = players_utils.filter_players_by_team_year(players, teamName, int(year), filter_by_has_birth_date)
         return {"players": filtered_players}
 
     except players_utils.InvalidTeamName:
@@ -17,12 +18,6 @@ def get_players(teamName, year):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Invalid team name"
         )
-
-
-@router.get("/players/hasBirthDate")
-def get_players_with_birth_date(teamName, year):
-    #TODO implement !!!
-    pass
 
 
 @router.get("/players/stats/{first_name}/{last_name}")

@@ -45,16 +45,21 @@ def _filter_players_content(players):
     return filtered_players_content
 
 
-def filter_players_by_team_year(players, team_name, year):
+def filter_players_by_team_year(players, team_name, year, filter_by_has_birth_date):
     if team_name not in teams_id:
         raise InvalidTeamName("Team Name is not valid")
     
     filtered_players = []
     for league, league_players in players.items():
-        filtered_players.extend(
-            filter(lambda player: _was_played_in_team_and_yaer(player, team_name, year), league_players)
-        )
-
+        if filter_by_has_birth_date:
+            filtered_players.extend(
+                filter(lambda player: _was_played_in_team_and_yaer(player, team_name, year) and player["dateOfBirthUTC"] != "", league_players)
+            )
+        else:
+            filtered_players.extend(
+                filter(lambda player: _was_played_in_team_and_yaer(player, team_name, year), league_players)
+            )
+            
     return _filter_players_content(filtered_players)
 
 
