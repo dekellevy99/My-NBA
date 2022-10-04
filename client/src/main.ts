@@ -19,7 +19,8 @@
     $("#search-btn").on("click", function(){
         let teamName: string = <string> $("#team-input").val()
         let year: number = <number> $("#year-input").val()
-        data.generatePlayers(teamName, year).then(() => {
+        let filterByHasBitrhDate: boolean = $("#birthDate-checkbox").is(":checked")
+        data.generatePlayers(teamName, year, filterByHasBitrhDate).then(() => {
             render.renderPlayers(data)
         })
     });

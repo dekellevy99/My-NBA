@@ -40,8 +40,8 @@ class Data{
         }
     }
 
-    async generatePlayers(teamName: string, year: number){
-        let dataPlayers = await $.get(`/players?teamName=${teamName}&year=${year}`);
+    async generatePlayers(teamName: string, year: number, filterByHasBitrhDate: boolean){
+        let dataPlayers = await $.get(`/players?teamName=${teamName}&year=${year}&hasBirthDate=${filterByHasBitrhDate}`);
         this._players.splice(0);
         for(const player of dataPlayers["players"]){
             const {personId, firstName, lastName, jersey, pos, picture} = player;
