@@ -24,7 +24,7 @@ class Data{
     removePlayerById(playerId: number): void{
         for(let i = 0; i < this._players.length; i++){
             let curPlayer = this._players[i]
-            if(curPlayer.id === playerId){
+            if(curPlayer.id == playerId){
                 this._players.splice(i, 1);
             }
         }
@@ -75,7 +75,8 @@ class Data{
     removePlayerFromDreamTeam(playerId: number){
         let player = this.getPlayerById(playerId);
         if(player != undefined){
-            $.ajax({
+            this.removePlayerById(playerId)
+            return $.ajax({
                 url: `/dreamTeam/${playerId}`,
                 method: "DELETE"
             })
