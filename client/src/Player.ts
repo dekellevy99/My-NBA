@@ -39,7 +39,7 @@ class Player{
     get id(): number{
         return this._id
     }
-    
+
     // === SET METHODS ===
     set firstName(name: string){
         this._firstName = name;
@@ -59,5 +59,5 @@ class Player{
 
     set picture(picture: string){
         this._picture = picture;
-    }    
+    }
 }
